@@ -2,8 +2,14 @@ import {
   GetEvents,
   GetEventById,
   GetAllEventsFromUser,
+  UpdateEvent,
 } from "../../services/eventServices";
-import { GET_EVENTS, GET_SINGLE_EVENT, GET_EVENTS_FROM_USER } from "../types";
+import {
+  GET_EVENTS,
+  GET_SINGLE_EVENT,
+  GET_EVENTS_FROM_USER,
+  UPDATE_EVENT,
+} from "../types";
 
 export const LoadEvents = () => {
   return async (dispatch) => {
@@ -39,6 +45,20 @@ export const LoadSingleEvent = (id) => {
       const event = await GetEventById(id);
       dispatch({
         type: GET_SINGLE_EVENT,
+        payload: event,
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const UpdateEvent = (userId, id, data) => {
+  return async (dispatch) => {
+    try {
+      const event = await UpdateEvent(userId, id, data);
+      dispatch({
+        type: UPDATE_EVENT,
         payload: event,
       });
     } catch (error) {
