@@ -5,6 +5,7 @@ import SignIn from "./pages/signIn";
 import FeedPage from "./pages/feedPage";
 import EventPage from "./pages/eventPage";
 import UserProfile from "./pages/userProfile";
+import Nav from "./components/nav";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/userServices";
 
@@ -28,6 +29,9 @@ function App() {
 
   return (
     <div className="App">
+      <div>
+        <Nav user={user} />
+      </div>
       <Routes>
         <Route index element={<Home />} />
         <Route
@@ -49,7 +53,7 @@ function App() {
           }
         />
         <Route
-          path="/feed"
+          path="/events"
           element={
             <FeedPage
               setUser={setUser}
