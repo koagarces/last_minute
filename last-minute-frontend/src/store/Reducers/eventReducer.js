@@ -3,6 +3,7 @@ const {
   GET_SINGLE_EVENT,
   GET_EVENTS_FROM_USER,
   UPDATE_EVENT,
+  DELETE_EVENT,
 } = require("../types");
 
 const iState = {
@@ -19,6 +20,8 @@ const EventReducer = (state = iState, action) => {
     case GET_EVENTS_FROM_USER:
       return { ...state, events: action.payload };
     case UPDATE_EVENT:
+      return { ...state, event: action.payload };
+    case DELETE_EVENT:
       return { ...state, event: action.payload };
     default:
       return { ...state };

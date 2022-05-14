@@ -3,12 +3,14 @@ import {
   GetEventById,
   GetAllEventsFromUser,
   UpdateEvent,
+  DeleteEvent,
 } from "../../services/eventServices";
 import {
   GET_EVENTS,
   GET_SINGLE_EVENT,
   GET_EVENTS_FROM_USER,
   UPDATE_EVENT,
+  DELETE_EVENT,
 } from "../types";
 
 export const LoadEvents = () => {
@@ -59,6 +61,19 @@ export const UpdateAnEvent = (userId, id, data) => {
       const event = await UpdateEvent(userId, id, data);
       dispatch({
         type: UPDATE_EVENT,
+        payload: event,
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+export const DeleteAnEvent = (id) => {
+  return async (dispatch) => {
+    try {
+      const event = await DeleteEvent(id);
+      dispatch({
+        type: DELETE_EVENT,
         payload: event,
       });
     } catch (error) {

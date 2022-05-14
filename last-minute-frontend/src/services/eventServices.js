@@ -19,14 +19,14 @@ export const GetEventById = async (id) => {
   }
 };
 
-export const GetAllEventsFromUser = async (userId) =>{
+export const GetAllEventsFromUser = async (userId) => {
   try {
     const res = await Client.get(`/events/user/${userId}`);
     return res.data;
   } catch (error) {
     throw error;
   }
-}
+};
 
 export const CreateEvent = async (userId, data) => {
   try {
@@ -37,10 +37,10 @@ export const CreateEvent = async (userId, data) => {
   }
 };
 
-export const DeleteEvent = async (userId, id, data) => {
+export const DeleteEvent = async (id) => {
   try {
-    await Client.delete(`/events/${userId}/${id}`);
-    console.log("event deleted");
+    await Client.delete(`/events/${id}`);
+    console.log(`event with id ${id} deleted`);
   } catch (error) {
     throw error;
   }
