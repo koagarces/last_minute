@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 const Nav = (props) => {
-  const userId = parseInt(props.user);
-  console.log(userId);
+  const userId = props.user;
+  console.log(userId.id);
 
   return (
     <div>
-      <Link to={`/user/${userId}`}>Profile</Link>
+      <Link to={`/user/${userId.id}`}>Profile</Link>
     </div>
   );
 };
