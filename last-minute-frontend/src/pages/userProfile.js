@@ -9,6 +9,7 @@ const mapStateToProps = ({ eventState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchEvents: (userId) => dispatch(LoadAllUserEvents(userId)),
+    updateAnEvent: (userId, eventId) => dispatch(),
   };
 };
 
@@ -28,6 +29,7 @@ const UserProfile = (props) => {
               <>
                 <h2>{event.eventName}</h2>
                 <p>{event.date}</p>
+                <button> </button>
                 <img className="eventPicture" src={event.image} />
               </>
             )}
