@@ -1,8 +1,12 @@
 import { UpdateEvent } from "../services/eventServices";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-const UpdatePage = () => {
+const UpdatePage = (props) => {
+  let userId = props.user.id;
+  const { id } = useParams();
+
   let navigate = useNavigate();
   const [eventValues, setEventValues] = useState({
     eventName: "",
@@ -17,7 +21,7 @@ const UpdatePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await UpdateEvent({
+    await UpdateEvent(userId, id, {
       eventName: eventValues.eventName,
       date: eventValues.date,
       description: eventValues.description,
