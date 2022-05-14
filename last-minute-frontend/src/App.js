@@ -4,6 +4,7 @@ import SignUp from "./pages/signUp";
 import SignIn from "./pages/signIn";
 import FeedPage from "./pages/feedPage";
 import EventPage from "./pages/eventPage";
+import UserProfile from "./pages/userProfile";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/userServices";
 
@@ -60,6 +61,16 @@ function App() {
           path={`/events/:id`}
           element={
             <EventPage
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path={`/user/:userId`}
+          element={
+            <UserProfile
               setUser={setUser}
               toggleAuthenticated={toggleAuthenticated}
               user={user}
