@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { LoadAllUserEvents } from "../store/Actions/eventActions";
 const mapStateToProps = ({ eventState }) => {
   return { eventState };
@@ -9,7 +9,6 @@ const mapStateToProps = ({ eventState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchEvents: (userId) => dispatch(LoadAllUserEvents(userId)),
-    updateAnEvent: (userId, eventId) => dispatch(),
   };
 };
 
@@ -29,7 +28,7 @@ const UserProfile = (props) => {
               <>
                 <h2>{event.eventName}</h2>
                 <p>{event.date}</p>
-                <button> </button>
+                <Link to={`/user/event/${event.id}`}> Update </Link>
                 <img className="eventPicture" src={event.image} />
               </>
             )}
