@@ -9,3 +9,5 @@ export const CREATE_MATCH = "CREATE_MATCH";
 export const TOGGLE_AUTH = "TOGGLE_AUTH";
 
 export const SET_THE_USER = "SET_USER";
+
+export const GET_EVENTS_FROM_USER = "GET_EVENTS_FROM_USER";

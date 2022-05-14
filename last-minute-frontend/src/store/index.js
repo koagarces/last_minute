@@ -6,7 +6,7 @@ import EventReducer from "./Reducers/eventReducer";
 import MatchReducer from "./Reducers/matchReducer";
 
 const store = createStore(
-  combineReducers({ eventState: EventReducer, matchesState: MatchReducer }),
+  combineReducers({ eventState: EventReducer, matchState: MatchReducer }),
   composeWithDevTools(applyMiddleware(thunk))
 );
 export default store;

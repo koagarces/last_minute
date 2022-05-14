@@ -15,10 +15,10 @@ export const LoadMatchesByUser = (userId) => {
   };
 };
 
-export const UploadNewMatch = (userId, eventId) => {
+export const UploadNewMatch = (userId, eventId, data) => {
   return async (dispatch) => {
     try {
-      const match = await CreateMatch(userId, eventId);
+      const match = await CreateMatch(userId, eventId, data);
       dispatch({
         type: CREATE_MATCH,
         payload: match,
