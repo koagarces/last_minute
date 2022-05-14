@@ -53,7 +53,7 @@ export const LoadSingleEvent = (id) => {
   };
 };
 
-export const UpdateEvent = (userId, id, data) => {
+export const UpdateAnEvent = (userId, id, data) => {
   return async (dispatch) => {
     try {
       const event = await UpdateEvent(userId, id, data);
