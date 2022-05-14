@@ -8,7 +8,7 @@ import UserProfile from "./pages/userProfile";
 import Nav from "./components/nav";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/userServices";
-
+import UpdatePage from "./pages/updatePage";
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -29,9 +29,6 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <Nav user={user} />
-      </div>
       <Routes>
         <Route index element={<Home />} />
         <Route
@@ -58,6 +55,7 @@ function App() {
             <FeedPage
               setUser={setUser}
               toggleAuthenticated={toggleAuthenticated}
+              user={user}
             />
           }
         />
@@ -75,6 +73,16 @@ function App() {
           path={`/user/:userId`}
           element={
             <UserProfile
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path={`/user/event/:id`}
+          element={
+            <UpdatePage
               setUser={setUser}
               toggleAuthenticated={toggleAuthenticated}
               user={user}
