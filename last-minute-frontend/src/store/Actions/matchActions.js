@@ -1,10 +1,32 @@
-import { GetMatchesByUserId, CreateMatch } from "../../services/matchServices";
-import { CREATE_MATCH, GET_MATCHES_FROM_USER } from "../types";
+import {
+  GetMatchesByUserId,
+  CreateMatch,
+  GetMatchesByEventId,
+} from "../../services/matchServices";
+import {
+  CREATE_MATCH,
+  GET_MATCHES_FROM_USER,
+  GET_MATCHES_FROM_EVENT,
+} from "../types";
 
-export const LoadMatchesByUser = (userId) => {
+export const LoadMatchesByEvent = (eventId) => {
   return async (dispatch) => {
     try {
-      const matches = await GetMatchesByUserId(userId);
+      const matches = await GetMatchesByEventId(eventId);
+      dispatch({
+        type: GET_MATCHES_FROM_EVENT,
+        payload: matches,
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const LoadMatchesByUser = (userId, data) => {
+  return async (dispatch) => {
+    try {
+      const matches = await GetMatchesByUserId(userId, data);
       dispatch({
         type: GET_MATCHES_FROM_USER,
         payload: matches,

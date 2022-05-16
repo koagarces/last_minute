@@ -5,10 +5,13 @@ import SignIn from "./pages/signIn";
 import FeedPage from "./pages/feedPage";
 import EventPage from "./pages/eventPage";
 import UserProfile from "./pages/userProfile";
-import Nav from "./components/nav";
+import CreateEventPage from "./pages/createEvent";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/userServices";
 import UpdatePage from "./pages/updatePage";
+import Messages from "./components/messages";
+import MatchesList from "./components/matchList";
+import Chat from "./pages/chat";
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -30,7 +33,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route index element={<Home />} />
+        <Route
+          index
+          element={<Home toggleAuthenticated={toggleAuthenticated} />}
+        />
         <Route
           path="/sign-up"
           element={
@@ -83,6 +89,46 @@ function App() {
           path={`/user/event/:id`}
           element={
             <UpdatePage
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path={`/user/event/create`}
+          element={
+            <CreateEventPage
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path={`/matches/:userId`}
+          element={
+            <Chat
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path={`/matches/:userId`}
+          element={
+            <Messages
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path={`/matches/:userId`}
+          element={
+            <MatchesList
               setUser={setUser}
               toggleAuthenticated={toggleAuthenticated}
               user={user}

@@ -1,11 +1,9 @@
-import { UpdateEvent } from "../services/eventServices";
+import { CreateEvent } from "../services/eventServices";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 
-const UpdatePage = (props) => {
+const CreateEventPage = (props) => {
   let userId = props.user.id;
-  const { id } = useParams();
 
   let navigate = useNavigate();
   const [eventValues, setEventValues] = useState({
@@ -21,7 +19,7 @@ const UpdatePage = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await UpdateEvent(userId, id, {
+    await CreateEvent(userId, {
       eventName: eventValues.eventName,
       date: eventValues.date,
       description: eventValues.description,
@@ -81,4 +79,4 @@ const UpdatePage = (props) => {
   );
 };
 
-export default UpdatePage;
+export default CreateEventPage;

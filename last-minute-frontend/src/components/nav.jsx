@@ -7,6 +7,9 @@ const Nav = (props) => {
   return (
     <div>
       <Link to={`/user/${userId.id}`}>Profile</Link>
+      <Link to={`/user/event/create`}>New Event</Link>
+      <Link to={`/matches/${userId.id}`}>Matches</Link>
+      <Link to={`/`}>Sign Out</Link>
     </div>
   );
 };

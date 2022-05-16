@@ -2,7 +2,7 @@ import Client from "./";
 
 export const GetMatchesByUserId = async (userId, data) => {
   try {
-    const res = await Client.get(`/matches/${userId}`, data);
+    const res = await Client.get(`/matches/user/${userId}`);
     return res.data;
   } catch (error) {
     throw error;
@@ -11,7 +11,8 @@ export const GetMatchesByUserId = async (userId, data) => {
 
 export const GetMatchesByEventId = async (eventId) => {
   try {
-    const res = await Client.get(`/matches/${eventId}`);
+    const res = await Client.get(`/matches/event/${eventId}`);
+    console.log(res.data);
     return res.data;
   } catch (error) {
     throw error;

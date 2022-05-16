@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-const Home = () => {
+const Home = (props) => {
+  useEffect(() => {
+    props.toggleAuthenticated(false);
+  }, []);
+
   return (
     <div>
       <div>
