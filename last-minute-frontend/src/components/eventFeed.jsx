@@ -27,7 +27,7 @@ const EventFeed = (props) => {
   return (
     <main>
       <div>
-        {props.eventState.events.map((event) => (
+        {props.eventState.allEvents.map((event) => (
           <div onClick={() => navigateToEvent(event)}>
             {event.searching === false ? null : (
               <>
