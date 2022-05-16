@@ -1,44 +1,37 @@
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { LoadEvents } from "../store/Actions/eventActions";
-const mapStateToProps = ({ eventState }) => {
-  return { eventState };
+import {
+  UploadNewMessage,
+  LoadAllMessages,
+} from "../store/Actions/messageActions";
+const mapStateToProps = ({ messageState }) => {
+  return { messageState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchEvents: (userId) => dispatch(LoadEvents(userId)),
+    fetchMessages: (matchId) => dispatch(LoadAllMessages(matchId)),
   };
 };
 
 const Messages = (props) => {
-  let { userId } = useParams();
-  userId = parseInt(userId);
+  let { matchId } = useParams();
+  matchId = parseInt(matchId);
   let navigate = useNavigate();
 
   useEffect(() => {
-    // props.fetchEvents(userId);
+    // props.fetchMessages(matchId);
   }, []);
-  const navigateToEvent = (event) => {
-    console.log(`${event.id}`);
-    navigate(`/events/${event.id}`);
-  };
   return (
     <main>
-      {/* <div>
-        {props.eventState.events.map((event) => (
-          <div onClick={() => navigateToEvent(event)}>
-            {event.searching === false ? null : (
-              <>
-                <h2>{event.eventName}</h2>
-                <p>{event.date}</p>
-                <img className="eventPicture" src={event.image} />
-              </>
-            )}
+      <div>
+        {props.messageState.messages.map((message) => (
+          <div>
+            <p>{message.description}</p>
           </div>
         ))}
-      </div> */}
+      </div>
     </main>
   );
 };
