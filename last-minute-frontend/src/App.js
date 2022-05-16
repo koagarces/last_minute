@@ -116,7 +116,7 @@ function App() {
           }
         />
         <Route
-          path={`/matches/:matchId`}
+          path={`/messages/:matchId`}
           element={
             <Messages
               setUser={setUser}

@@ -21,7 +21,7 @@ const Messages = (props) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    // props.fetchMessages(matchId);
+    props.fetchMessages(matchId);
   }, []);
   return (
     <main>

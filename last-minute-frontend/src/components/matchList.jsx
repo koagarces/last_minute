@@ -24,9 +24,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const MatchesList = (props) => {
   const [eventId, setEventId] = useState(Number);
-  // const [users, setUsers] = useState();
-
-  // console.log(users);
+  const navigate = useNavigate();
 
   let { userId } = useParams();
   userId = parseInt(userId);
@@ -36,10 +34,9 @@ const MatchesList = (props) => {
     props.fetchMatchesByEvent(eventId);
   };
 
-  // const selectedUser = async () => {
-  //   const userList = await getAllUsers;
-  //   setUsers(userList);
-  // };
+  const navToMessages = (match) => {
+    navigate(`/messages/${match.id}`);
+  };
   console.log(eventId);
   useEffect(() => {
     props.fetchMatchesByUser(`${userId}`);
@@ -58,7 +55,9 @@ const MatchesList = (props) => {
             {props.eventState.allEvents.map((event) =>
               event.id === match.eventId ? null : (
                 <>
-                  <h2>{event.eventName}</h2>
+                  <h2 onClick={() => navToMessages(match)}>
+                    {event.eventName}
+                  </h2>
                 </>
               )
             )}
@@ -79,7 +78,9 @@ const MatchesList = (props) => {
             {props.userState.users.map((user) =>
               user.id === match.userId ? null : (
                 <>
-                  <h2>{user.firstName}</h2>
+                  <div onClick={() => navToMessages(match)}>
+                    {user.firstName}
+                  </div>
                 </>
               )
             )}
