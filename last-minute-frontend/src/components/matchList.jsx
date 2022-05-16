@@ -7,8 +7,9 @@ import {
 } from "../store/Actions/matchActions";
 
 import { LoadAllUserEvents, LoadEvents } from "../store/Actions/eventActions";
-const mapStateToProps = ({ eventState, matchState }) => {
-  return { eventState, matchState };
+import { LoadAllUsers } from "../store/Actions/userActions";
+const mapStateToProps = ({ eventState, matchState, userState }) => {
+  return { eventState, matchState, userState };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -17,11 +18,15 @@ const mapDispatchToProps = (dispatch) => {
     fetchMatchesByEvent: (eventId) => dispatch(LoadMatchesByEvent(eventId)),
     fetchUserEvents: (userId) => dispatch(LoadAllUserEvents(userId)),
     fechAllEvents: () => dispatch(LoadEvents()),
+    fetchAllUsers: () => dispatch(LoadAllUsers()),
   };
 };
 
 const MatchesList = (props) => {
   const [eventId, setEventId] = useState(Number);
+  // const [users, setUsers] = useState();
+
+  // console.log(users);
 
   let { userId } = useParams();
   userId = parseInt(userId);
@@ -31,11 +36,17 @@ const MatchesList = (props) => {
     props.fetchMatchesByEvent(eventId);
   };
 
+  // const selectedUser = async () => {
+  //   const userList = await getAllUsers;
+  //   setUsers(userList);
+  // };
   console.log(eventId);
   useEffect(() => {
     props.fetchMatchesByUser(`${userId}`);
     props.fetchUserEvents(`${userId}`);
     props.fechAllEvents();
+    props.fetchAllUsers();
+    // selectedUser();
   }, []);
 
   return (
@@ -58,14 +69,20 @@ const MatchesList = (props) => {
         <h1>Your Event Matches</h1>
         {props.eventState.events.map((event) => (
           <div onClick={() => selectedEvent(event)}>
-            <h2>{event.eventName}</h2>
+            <button>{event.eventName}</button>
           </div>
         ))}
       </div>
       <div>
         {props.matchState.eventMatches.map((match) => (
           <div>
-            <h2>{match.eventId}</h2>
+            {props.userState.users.map((user) =>
+              user.id === match.userId ? null : (
+                <>
+                  <h2>{user.firstName}</h2>
+                </>
+              )
+            )}
           </div>
         ))}
       </div>
