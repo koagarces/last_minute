@@ -29,6 +29,15 @@ export const CheckSession = async () => {
   }
 };
 
+export const getAllUsers = async () => {
+  try {
+    const res = await Client.get(`/users/all`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getUser = async (id) => {
   try {
     const res = await Client.get(`/users/session/${id}`);
