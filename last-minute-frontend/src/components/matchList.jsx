@@ -5,7 +5,8 @@ import {
   LoadMatchesByEvent,
   LoadMatchesByUser,
 } from "../store/Actions/matchActions";
-import { LoadAllUserEvents } from "../store/Actions/eventActions";
+
+import { LoadAllUserEvents, LoadEvents } from "../store/Actions/eventActions";
 const mapStateToProps = ({ eventState, matchState }) => {
   return { eventState, matchState };
 };
@@ -15,6 +16,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchMatchesByUser: (userId) => dispatch(LoadMatchesByUser(userId)),
     fetchMatchesByEvent: (eventId) => dispatch(LoadMatchesByEvent(eventId)),
     fetchUserEvents: (userId) => dispatch(LoadAllUserEvents(userId)),
+    fechAllEvents: () => dispatch(LoadEvents()),
   };
 };
 
@@ -33,18 +35,27 @@ const MatchesList = (props) => {
   useEffect(() => {
     props.fetchMatchesByUser(`${userId}`);
     props.fetchUserEvents(`${userId}`);
+    props.fechAllEvents();
   }, []);
 
   return (
     <main>
       <div>
+        <h1>Match requests</h1>
         {props.matchState.userMatches.map((match) => (
           <div>
-            <h2>{match.eventId}</h2>
+            {props.eventState.allEvents.map((event) =>
+              event.id === match.eventId ? null : (
+                <>
+                  <h2>{event.eventName}</h2>
+                </>
+              )
+            )}
           </div>
         ))}
       </div>
       <div>
+        <h1>Your Event Matches</h1>
         {props.eventState.events.map((event) => (
           <div onClick={() => selectedEvent(event)}>
             <h2>{event.eventName}</h2>

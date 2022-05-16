@@ -7,6 +7,7 @@ const {
 } = require("../types");
 
 const iState = {
+  allEvents: [],
   events: [],
   event: {},
 };
@@ -14,7 +15,7 @@ const iState = {
 const EventReducer = (state = iState, action) => {
   switch (action.type) {
     case GET_EVENTS:
-      return { ...state, events: action.payload };
+      return { ...state, allEvents: action.payload };
     case GET_SINGLE_EVENT:
       return { ...state, event: action.payload };
     case GET_EVENTS_FROM_USER:
