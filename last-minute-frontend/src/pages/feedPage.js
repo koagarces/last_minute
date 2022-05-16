@@ -1,5 +1,5 @@
 import EventFeed from "../components/eventFeed";
-
+import "../styles/feedPage.css";
 import Nav from "../components/nav";
 
 const FeedPage = (props) => {
@@ -9,9 +9,9 @@ const FeedPage = (props) => {
         <Nav user={props.user} />
       </div>
       <div>
-        <h1>Last Minute Events</h1>
+        <h1 className="title">Event Feed</h1>
       </div>
-      <div>
+      <div className="anEvent">
         <EventFeed />
       </div>
     </div>

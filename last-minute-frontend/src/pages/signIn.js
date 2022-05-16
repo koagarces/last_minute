@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SignInUser } from "../services/userServices";
+import "../styles/signin.css";
 
 const SignIn = (props) => {
   let navigate = useNavigate();
@@ -25,10 +26,10 @@ const SignIn = (props) => {
 
   return (
     <div>
-      <h2 className="login-register">Login</h2>
-      <form className="form" onSubmit={submitData}>
+      <div className="login">Login</div>
+      <form className="logform" onSubmit={submitData}>
         <input
-          className="formInput"
+          className="logformInput"
           type="userName"
           value={formValues.userName}
           onChange={handleChange}
@@ -37,7 +38,7 @@ const SignIn = (props) => {
           required
         />
         <input
-          className="formInput"
+          className="logformInput"
           type="text-area"
           value={formValues.password}
           onChange={handleChange}

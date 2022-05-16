@@ -1,6 +1,7 @@
 import { RegisterUser } from "../services/userServices";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "../styles/signup.css";
 
 const SignUp = () => {
   let navigate = useNavigate();
@@ -47,8 +48,8 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h2 className="login-register">Register</h2>
+    <div className="body">
+      <h2 className="register">Register</h2>
       <form className="form" onSubmit={handleSubmit}>
         <input
           className="formInput"

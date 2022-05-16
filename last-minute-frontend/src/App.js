@@ -12,6 +12,7 @@ import UpdatePage from "./pages/updatePage";
 import Messages from "./components/messages";
 import MatchesList from "./components/matchList";
 import Chat from "./pages/chat";
+import "./styles/app.css";
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
   const [user, setUser] = useState(null);

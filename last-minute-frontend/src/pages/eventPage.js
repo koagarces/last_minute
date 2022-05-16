@@ -41,7 +41,6 @@ const EventPage = (props) => {
       <button className="match-button" onClick={() => addAndTravelToMatches()}>
         Match
       </button>
-      <button>Up</button>
     </div>
   );
 };
