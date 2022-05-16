@@ -1,6 +1,11 @@
 import axios from "axios";
 
-const Client = axios.create({ baseURL: "http://localhost:3001" });
+export const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://git.heroku.com/last-minute-backend.git"
+    : "http://localhost:3001";
+
+const Client = axios.create({ baseURL: BASE_URL });
 
 Client.interceptors.request.use(
   (config) => {
