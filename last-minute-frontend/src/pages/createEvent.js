@@ -36,7 +36,7 @@ const CreateEventPage = (props) => {
 
   return (
     <div>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="newform" onSubmit={handleSubmit}>
         <input
           className="formInput"
           type="text"

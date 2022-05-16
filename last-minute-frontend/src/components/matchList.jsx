@@ -5,7 +5,7 @@ import {
   LoadMatchesByEvent,
   LoadMatchesByUser,
 } from "../store/Actions/matchActions";
-
+import "../styles/matches.css";
 import { LoadAllUserEvents, LoadEvents } from "../store/Actions/eventActions";
 import { LoadAllUsers } from "../store/Actions/userActions";
 const mapStateToProps = ({ eventState, matchState, userState }) => {
@@ -47,8 +47,8 @@ const MatchesList = (props) => {
   }, []);
 
   return (
-    <main>
-      <div>
+    <main className="all">
+      <div className="matchColumn">
         <h1>Match requests</h1>
         {props.matchState.userMatches.map((match) => (
           <div>
@@ -64,7 +64,7 @@ const MatchesList = (props) => {
           </div>
         ))}
       </div>
-      <div>
+      <div className="eventColumn">
         <h1>Your Event Matches</h1>
         {props.eventState.events.map((event) => (
           <div onClick={() => selectedEvent(event)}>

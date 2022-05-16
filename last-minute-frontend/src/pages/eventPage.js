@@ -36,7 +36,7 @@ const EventPage = (props) => {
       <h2 className="eventTitle">{props.eventState.event.eventName}</h2>
       <p>{props.eventState.event.date}</p>
       <div>
-        <img src={props.eventState.event.image} />
+        <img className="eventImg" src={props.eventState.event.image} />
       </div>
       <p>{props.eventState.event.description}</p>
       <button className="eventbutton" onClick={() => addAndTravelToMatches()}>
