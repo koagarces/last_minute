@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { LoadSingleEvent } from "../store/Actions/eventActions";
 import { UploadNewMatch } from "../store/Actions/matchActions";
+import "../styles/eventpage.css";
 
 const mapStateToProps = ({ eventState, matchState }) => {
   return { eventState, matchState };
@@ -31,14 +32,14 @@ const EventPage = (props) => {
   };
 
   return (
-    <div>
-      <h1>{props.eventState.event.eventName}</h1>
-      <h2>{props.eventState.event.date}</h2>
+    <div className="wholeEvent">
+      <h2 className="eventTitle">{props.eventState.event.eventName}</h2>
+      <p>{props.eventState.event.date}</p>
       <div>
         <img src={props.eventState.event.image} />
       </div>
       <p>{props.eventState.event.description}</p>
-      <button className="match-button" onClick={() => addAndTravelToMatches()}>
+      <button className="eventbutton" onClick={() => addAndTravelToMatches()}>
         Match
       </button>
     </div>

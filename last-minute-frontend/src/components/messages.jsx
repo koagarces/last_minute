@@ -6,6 +6,7 @@ import {
   UploadNewMessage,
   LoadAllMessages,
 } from "../store/Actions/messageActions";
+
 const mapStateToProps = ({ messageState }) => {
   return { messageState };
 };
