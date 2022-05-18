@@ -1,0 +1,22 @@
+.body {
+  text-align: center;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+
+.logform {
+  display: flex;
+  flex-direction: column;
+  padding: 400px;
+  margin-top: -300px;
+}
+
+.logformInput {
+  margin: 5px;
+}

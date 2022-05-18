@@ -1,0 +1,10 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.links {
+  text-decoration: none;
+  color: black;
+  margin: 20px;
+}
