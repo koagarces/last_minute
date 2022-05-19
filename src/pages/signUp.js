@@ -56,7 +56,7 @@ const SignUp = () => {
           type="text"
           onChange={handleChange}
           name="firstName"
-          placeholder="first name"
+          placeholder="first  name"
           value={registerValues.firstName}
           required
         />
