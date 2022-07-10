@@ -6,6 +6,11 @@
 
 The main purpose of this application is to allow users who can't find a date in time for an event, to search for somoone who would be willing to go with them for a single night. The idea is that the matched user also requires a day where he/she needs a plus one, so in exchange for going to one users event, they also attend the other users event.
 
+## Go There!
+
+https://last-minute-event.herokuapp.com/
+
+
 ## Technologies Used:
 
 *PERN
