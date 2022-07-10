@@ -1,7 +1,14 @@
 .title {
   text-align: center;
+  display: flex;
+  /* justify-content: center; */
+  margin-left: 31%;
+  margin-top: 1%;
+  font-size: 60px;
+  color: white;
+  width: 40%;
 }
 
-/* .anEvent {
-  border-style: outset;
-} */
+.anEvent {
+  padding: 4%;
+}

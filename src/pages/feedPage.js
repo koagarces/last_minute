@@ -9,7 +9,7 @@ const FeedPage = (props) => {
         <Nav user={props.user} />
       </div>
       <div>
-        <h1 className="title">Event Feed</h1>
+        <h1 className="title">Choose the Event that meets your interests!</h1>
       </div>
       <div className="anEvent">
         <EventFeed />

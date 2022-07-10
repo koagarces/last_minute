@@ -33,8 +33,8 @@ const EventFeed = (props) => {
             {event.searching === false ? null : (
               <>
                 <div className="singleEvent">
-                  <h2>{event.eventName}</h2>
-                  <p>{event.date}</p>
+                  <h2 className="eventInfo">{event.eventName}</h2>
+                  <p className="eventInfo">{event.date}</p>
                   <img className="eventPicture" src={event.image} />
                 </div>
               </>

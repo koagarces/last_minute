@@ -6,17 +6,26 @@
   display: flex;
   justify-content: center;
   margin-top: 200px;
-  font-size: 60px;
+  font-size: 30px;
   margin-bottom: 30px;
 }
 
 .logform {
   display: flex;
   flex-direction: column;
-  padding: 400px;
+  position: relative;
+  padding: 350px;
   margin-top: -300px;
 }
 
 .logformInput {
-  margin: 5px;
+  margin-left: 32%;
+  padding: 2%;
+  width: 30%;
+}
+
+.logButton {
+  width: 20%;
+  margin-left: 39%;
+  /* display: flex; */
 }

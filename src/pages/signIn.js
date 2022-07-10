@@ -47,7 +47,7 @@ const SignIn = (props) => {
           required
         />
         <button
-          className="button"
+          className="logButton"
           disabled={!formValues.userName || !formValues.password}
         >
           Submit

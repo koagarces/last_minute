@@ -7,15 +7,17 @@
   margin-bottom: -310px;
 }
 .btn {
-  animation: bouncy 5s infinite linear;
+  animation: bouncy 8s infinite linear;
   position: relative;
-  margin: 40px;
-  padding: 20px;
-  background-color: RGB(105, 22, 0, 0.3);
-  height: 60px;
-  width: auto;
+  color: white;
+  margin-top: 40px;
+  padding: 1%;
+  background-color: rgb(0, 0, 0);
+  height: 10%;
+  width: 20%;
+  font-size: 30px;
 
-  border-radius: 35%;
+  /* border-radius: 35%; */
 }
 @keyframes bouncy {
   0% {
@@ -42,6 +44,6 @@
 }
 
 .btn:hover {
-  color: #fffbfb;
+  color: #00c010;
   background-color: #000000;
 }
