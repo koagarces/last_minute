@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://git.heroku.com/last-minute-backend.git"
+    ? "lastminuteserver-koajgarces.b4a.run"
     : "http://localhost:3001";
 
 const Client = axios.create({ baseURL: BASE_URL });
